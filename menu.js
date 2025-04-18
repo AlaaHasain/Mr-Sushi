@@ -1,7 +1,11 @@
-// تخزين بيانات القائمة في localStorage حتى تبقى بعد تحديث الصفحة
 function loadMenuData() {
     const savedMenu = localStorage.getItem('sushiMenu');
-    return savedMenu ? JSON.parse(savedMenu) : sushiMenu;
+    if (savedMenu) {
+        return JSON.parse(savedMenu);
+    } else {
+        // إرجاع مصفوفة فارغة إذا لم يكن هناك بيانات مخزنة
+        return [];
+    }
 }
 
 // البداية بجلب بيانات القائمة المخزنة أو استخدام القائمة الافتراضية
