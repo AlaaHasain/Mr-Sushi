@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr Sushi Resturent </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLoginStatus()">
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    <button class="toggle-sales-btn" onclick="toggleSalesPanel()">عرض المبيعات</button>
+    <div class="container">
+        <h1>Mr Sushi</h1>
+        
+        <!-- نموذج إضافة عنصر جديد -->
+        <div class="add-item-form">
+            <h2>إضافة عنصر جديد</h2>
+            <div class="form-group">
+                <label for="new-item-name">اسم العنصر:</label>
+                <input type="text" id="new-item-name" placeholder="أدخل اسم العنصر">
+            </div>
+            <div class="form-group">
+                <label for="new-item-price">السعر (الدينار):</label>
+                <input type="number" id="new-item-price" placeholder="أدخل السعر">
+            </div>
+            <div class="form-group">
+                <label for="new-item-description">الوصف:</label>
+                <textarea id="new-item-description" placeholder="أدخل وصف العنصر"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="new-item-category">الفئة:</label>
+                <select id="new-item-category">
+                    <option value="sushi">سوشي</option>
+                    <option value="sushi_sets">مجموعات السوشي</option>
+                    <option value="salad">سلطة</option>
+                    <option value="appetizer">مقبلات</option>
+                    <option value="soup">شوربات</option>
+                    <option value="kids_menu">منيو أطفال</option>
+                    <option value="dessert">حلويات</option>
+                    <option value="chinese">أكل صيني</option>
+                    <option value="drink">مشروبات</option>
+                </select>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <button id="add-new-item" onclick="addNewMenuItem()">إضافة للقائمة</button>
+            </div>
+        </div>
+        
+        <div class="menu">
+            <h2>القائمة</h2>
+            <!-- أزرار الفئات ستضاف هنا بواسطة JavaScript -->
+            <div id="menu-items" class="menu-grid">
+                <!-- سيتم إضافة عناصر القائمة بواسطة JavaScript -->
+            </div>
+        </div>
+
+        <div class="cart">
+            <h2>السلة</h2>
+            <div id="cart-items"></div>
+            <div class="cart-summary">
+                <p>المجموع الكلي: <span id="total-price">0</span> دينار </p>
+                
+                <!-- إضافة قسم الخصم -->
+                <div class="discount-section">
+                    <h3>تطبيق خصم</h3>
+                    <div class="discount-buttons">
+                        <button onclick="applyDiscount(0)">بدون خصم</button>
+                        <button onclick="applyDiscount(10)">خصم 10%</button>
+                        <button onclick="applyDiscount(15)">خصم 15%</button>
+                        <button onclick="applyDiscount(20)">خصم 20%</button>
+                        <button onclick="applyDiscount(25)">خصم 25%</button>
+                    </div>
+                    <div class="discount-info">
+                        <p>نسبة الخصم: <span id="discount-percent">0</span>%</p>
+                        <p>قيمة الخصم: <span id="discount-value">0</span> دينار</p>
+                        <p>المبلغ بعد الخصم: <span id="after-discount">0</span> دينار</p>
+                    </div>
+                </div>
+                
+                <div class="cart-buttons">
+                    <button id="print-invoice" onclick="autoPrint()">طباعة الفاتورة</button>
+                    <button id="print-invoice" onclick="closeInvoice()">تسكير الفاتورة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+    <script src="sales.js"></script>
+    <script src="login.js"></script>
+    <script src="common.js"></script>
+</body>
+</html>

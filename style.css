@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+/* تنسيقات عامة */
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* العناوين والترويسة */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 15px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 32px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #3498db;
+}
+
+/* تنسيق مشترك للعناوين من المستوى الثاني */
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* الأزرار */
+.primary-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* نموذج إضافة عنصر جديد */
+.add-item-form {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-group input, 
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#add-new-item {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+#add-new-item:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* أقسام القائمة */
+.menu-section {
+    margin-bottom: 40px;
+}
+
+.menu-section h2 {
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    text-align: center;
+    font-size: 24px;
+    position: relative;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 25px;
+}
+
+/* أزرار الفئات */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.category-btn.active {
+    background-color: #3498db;
+    color: white;
+}
+
+/* عناصر القائمة */
+.menu-item {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-item-info {
+    padding: 20px;
+}
+
+.menu-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.menu-item p.description {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-size: 14px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.menu-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-item .price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.menu-item button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.menu-item button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.item-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+/* تنسيق صفوف عناصر القائمة */
+.menu-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+/* سلة المشتريات */
+.cart {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cart-item-name {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-actions button {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.cart-actions button:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.cart-actions button.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.cart-actions button.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+.cart-summary {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cart-summary p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+#total-price {
+    color: #e74c3c;
+}
+
+#print-invoice {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#print-invoice:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* لوحة المبيعات */
+.sales-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1000px;
+    max-height: 80vh;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    display: none;
+}
+
+.sales-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.sales-panel-header h2 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-container input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+.filter-container button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.sales-content {
+    margin-top: 20px;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sales-table th,
+.sales-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.sales-table th {
+    background-color: #f2f2f2;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.sales-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.sales-table tr:hover {
+    background-color: #f0f0f0;
+}
+
+.no-sales {
+    text-align: center;
+    color: #7f8c8d;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.sales-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.sales-total p {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.sales-total button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sales-total button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* أزرار التحكم في المبيعات */
+.show-sales-btn, .toggle-sales-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.show-sales-btn:hover, .toggle-sales-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+
+/* تخصيص المطبوعات */
+@media print {
+    body {
+        width: 58mm;
+        font-family: monospace;
+        font-size: 12px;
+    }
+
+    .cart, .cart * {
+        visibility: visible;
+    }
+    
+    .cart {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    .cart-actions button, #print-invoice {
+        display: none;
+    }
+}
+
+/* استجابية للشاشات المختلفة */
+@media (max-width: 1200px) {
+    .menu-item {
+        width: calc(33.33% - 15px);
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-item {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+    }
+    
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .add-item-form {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-item {
+        width: 100%;
+    }
+}
