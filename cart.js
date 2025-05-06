@@ -221,7 +221,7 @@ function showInvoicePopup(cart, discountPercent, invoiceNumber) {
             <div class="receipt">
                 <div class="header">
                     <h1>Mr Sushi</h1>
-                    <p>Tel: 07 8910 0906</p>
+                    <p>Tel: 07 9719 5312</p>
                     <p><strong>RECEIPT</strong></p>
                     <p>${formattedDate}</p>
                     <p>${formattedTime}</p>
