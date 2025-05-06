@@ -45,7 +45,7 @@ function createInvoiceContent(items, discountPercent, timestamp, isReprint = fal
     
     header.innerHTML = `
         <div style="font-size: 14px; font-weight: bold;">SUSHI RESTAURANT</div>
-        <div style="font-size: 9px;">Tel: 07 8910 0906</div>
+        <div style="font-size: 9px;">Tel: 07 9719 5312</div>
         <div style="font-size: 11px; font-weight: bold;">RECEIPT${isReprint ? ' (REPRINT)' : ''}</div>
         <div style="font-size: 9px;">Date: ${dateString} (${dayName})</div>
         <div style="font-size: 9px;">Time: ${timeString}</div>
